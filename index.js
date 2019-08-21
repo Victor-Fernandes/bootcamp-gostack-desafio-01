@@ -68,8 +68,8 @@ server.put("/projects/:id", validateProject, (req, res) => {
 server.delete("/projects/:id", validateProject, (req, res) => {
   const { id } = req.params;
   //Deletar usuario
-  const delProject = projects.find(k => k.id === id);
-  // const delProject = projects.find(function(element) {
+  const delProject = projects.findIndex(k => k.id === id);
+  // const delProject = projects.findIndex(function(element) {
   //   if (element.id === id) {
   //     return id;
   //   }
