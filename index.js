@@ -82,12 +82,13 @@ server.delete("/projects/:id", validateProject, (req, res) => {
 server.post("/projects/:id/tasks", validateProject, (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
-
-  const addTaks = projects.find(function(element) {
-    if (element.id === id) {
-      return id;
-    }
-  });
+  //adicionar tarefa a um projeto
+  const addTaks = projects.find(k => k.id === id);
+  // const addTaks = projects.find(function(element) {
+  //   if (element.id === id) {
+  //     return id;
+  //   }
+  // });
 
   addTaks.tasks.push(title);
   return res.json(addTaks);
